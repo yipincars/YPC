@@ -67,6 +67,27 @@
 		<servlet-name>addCarBase</servlet-name>
 		<url-pattern>/yipincars/addCarBase</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updateCarBase</servlet-name>
+		<servlet-class>com.yipincars.admin.servlet.UpdateCarBaseServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>updateCarBase</servlet-name>
+		<url-pattern>/yipincars/updateCarBase</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getCarBaseList</servlet-name>
+		<servlet-class>com.yipincars.admin.servlet.GetCarBases4AdminServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>getCarBaseList</servlet-name>
+		<url-pattern>/yipincars/admin/getCarBaseList</url-pattern>
+	</servlet-mapping>
+	
 	<error-page>
 		<error-code>404</error-code>
 		<location>/NotFound404.jsp</location>

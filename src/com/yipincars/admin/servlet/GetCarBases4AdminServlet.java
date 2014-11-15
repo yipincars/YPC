@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +16,7 @@ import com.yipincars.admin.model.CarBase;
 public class GetCarBases4AdminServlet extends AbstractServlet{
 
 	//品牌，价格，车龄，变速箱，车型，里程数，地域，录入日期
-	String[] queryItems ={"newCarId", "price", "older", "gearbox", "classify", "mileage", "place", "inputTime" };
+	String[] queryItems ={"newCarId", "price", "older", "gearbox", "classify", "mileage", "place", "inputTime", "pageNo", "pageCount"};
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
@@ -23,23 +24,23 @@ public class GetCarBases4AdminServlet extends AbstractServlet{
 		
 		Map<String, Object> queryCondition = validateParamsAndBuild(request);
 		List<CarBase> result = carBaseService.getCarBase4Admin(queryCondition);
+		request.setAttribute("result", result);
 		
-		output(response, JSONArray.fromObject(result).toString());
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/admin/jsp/car_base_list.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 	@Override
 	public Map<String,Object> validateParamsAndBuild(HttpServletRequest request) {
 
-		String value = request.getParameter("value");
-		LOG.info("value=" + value);
-		
 		Map<String,Object> queryCondition = new HashMap<String, Object>();
-		JSONObject json = JSONObject.fromObject(value);
 		
 		for(String queryItem : queryItems){
-			if(json.containsKey(queryItem)){
-				queryCondition.put(queryItem, json.get(queryItem));
-			}
+			String queryValue = request.getParameter(queryItem);
+			if(queryValue != null){
+				queryCondition.put(queryItem, queryValue);
+			}	
 		}
 		
 		return queryCondition;

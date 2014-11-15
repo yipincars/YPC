@@ -35,7 +35,7 @@ public class CarBaseDaoImpl implements CarBaseDao{
 			"seller_home_address=?, seller_telephone=?,seller_description=?, master_name=?, master_number=?," +
 			"master_description=?,quality_level=? WHERE id=?";
 	
-	private static final String QUERY_CARBASES = "SELECT * FROM car_base where ";
+	private static final String QUERY_CARBASES = "SELECT * FROM car_base WHERE ";
 	
 	public long addCarBase(CarBase carBase) {
 
@@ -83,6 +83,9 @@ public class CarBaseDaoImpl implements CarBaseDao{
 	@SuppressWarnings("unchecked")
 	public List<CarBase> getCarBase4Admin(Map<String, Object> queryCondition) {
 		
+		Long pageNo = Long.valueOf((String)queryCondition.remove("pageNo"));
+		Long pageCount = Long.valueOf((String)queryCondition.remove("pageCount"));
+		
 		String sql = QUERY_CARBASES;
 		List<Object> values = new ArrayList<Object>();
 		
@@ -90,16 +93,23 @@ public class CarBaseDaoImpl implements CarBaseDao{
 			sql += (key + "=? AND ");
 			values.add(queryCondition.get(key));
 		}
-		StringUtils.removeEnd(sql, "AND ");
+		if(sql.contains("AND")){
+			sql = StringUtils.removeEnd(sql, "AND ");
+		}else{
+			sql = StringUtils.remove(sql, "WHERE ");
+		}
+		sql += ("LIMIT " + (pageNo - 1) * pageCount + "," + pageCount);
 		
 		return jdbcTemplate.query(sql, values.toArray(), new RowMapper(){
 			
 			public CarBase mapRow(ResultSet rs,int rowNum) throws SQLException{
 				CarBase carBase = new CarBase();
-				
 				carBase.setId(rs.getLong("id"));
-				
-				
+				carBase.setPrice(rs.getFloat("price"));
+//				carBase.setRegisterTime(rs.getDate("register_time"));
+//				carBase.setDetectTime(rs.getDate("detection_time"));
+//				carBase.setSellerDescription(rs.getString("seller_description"));
+//				carBase.setSellerTelephone(rs.getString("seller_telephone"));
 				
 				return carBase;
 			}

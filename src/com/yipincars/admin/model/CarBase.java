@@ -26,6 +26,11 @@ public class CarBase implements java.io.Serializable {
 
 	private Long id;
 	private Long newCarId;
+	private String baseMake;
+	private String baseProducePlace;
+	private String baseLine;
+	private String baseMarketTime;
+	private String baseModel;
 	private String place;
 	private Float price;
 	private Integer older;
@@ -347,6 +352,46 @@ public class CarBase implements java.io.Serializable {
 
 	public void setInputTime(Date inputTime) {
 		this.inputTime = inputTime;
+	}
+
+	public String getBaseMake() {
+		return baseMake;
+	}
+
+	public void setBaseMake(String baseMake) {
+		this.baseMake = baseMake;
+	}
+
+	public String getBaseProducePlace() {
+		return baseProducePlace;
+	}
+
+	public void setBaseProducePlace(String baseProducePlace) {
+		this.baseProducePlace = baseProducePlace;
+	}
+
+	public String getBaseLine() {
+		return baseLine;
+	}
+
+	public void setBaseLine(String baseLine) {
+		this.baseLine = baseLine;
+	}
+
+	public String getBaseMarketTime() {
+		return baseMarketTime;
+	}
+
+	public void setBaseMarketTime(String baseMarketTime) {
+		this.baseMarketTime = baseMarketTime;
+	}
+
+	public String getBaseModel() {
+		return baseModel;
+	}
+
+	public void setBaseModel(String baseModel) {
+		this.baseModel = baseModel;
 	}
 
 }

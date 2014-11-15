@@ -1,5 +1,8 @@
 package com.yipincars.admin.servlet;
 
+import java.sql.Date;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -7,20 +10,20 @@ import net.sf.json.JSONObject;
 
 import com.yipincars.admin.model.CarBase;
 
-import java.sql.Date;
-
 public class UpdateCarBaseServlet extends AbstractServlet {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		CarBase carBase = validateParamsAndBuild(request);
-	    carBaseService.updateCarBase(carBase);
-
-        JSONObject jsonObject = new JSONObject();
-		jsonObject.put("result", true);
+//		CarBase carBase = validateParamsAndBuild(request);
+//	    carBaseService.updateCarBase(carBase);
+//
+//        JSONObject jsonObject = new JSONObject();
+//		jsonObject.put("result", true);
 		
-		output(response, jsonObject.toString());
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/updateCarBase.jsp");
+		dispatcher.forward(request, response);
+		//output(response, jsonObject.toString());
 	}
 
 	@Override
