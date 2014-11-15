@@ -30,4 +30,12 @@ public class CarDetectionDaoImpl implements CarDetectionDao{
 		hibernateTemplate.update(carDetection);
 	}
 
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
+
 }

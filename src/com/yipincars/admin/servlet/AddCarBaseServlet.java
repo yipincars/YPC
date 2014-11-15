@@ -1,7 +1,7 @@
 package com.yipincars.admin.servlet;
 
 import java.sql.Date;
-import java.util.Calendar;
+import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,7 +34,11 @@ public class AddCarBaseServlet extends AbstractServlet{
 	public CarBase validateParamsAndBuild(HttpServletRequest request) {
         //HTTP请求中value值
         String value = request.getParameter("value");
-
+        Enumeration<String> enumeration =request.getParameterNames();
+		while(enumeration.hasMoreElements()) {
+			String name = enumeration.nextElement();
+			System.out.println(name + ":" + request.getParameter(name));
+		}
         LOG.info("value=" + value);
         JSONObject carBaseJson = JSONObject.fromObject(value);
 

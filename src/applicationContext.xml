@@ -106,4 +106,16 @@
 			<ref local="jdbcTemplate"/>
 		</property>
     </bean>
+    
+    <bean id="carDetectionService" class="com.yipincars.admin.service.impl.CarDetectionServiceImpl">
+    	<property name="carDetectionDao">
+			<ref local="carDetectionDao"/>
+		</property>
+    </bean>
+    
+    <bean id="carDetectionDao" class="com.yipincars.admin.dao.impl.CarDetectionDaoImpl">
+    	<property name="jdbcTemplate">
+			<ref local="jdbcTemplate"/>
+		</property>
+    </bean>
 </beans>

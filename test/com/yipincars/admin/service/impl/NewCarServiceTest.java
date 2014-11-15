@@ -12,7 +12,7 @@ public class NewCarServiceTest {
 //		@Before
 //		public void before(){
 //			ApplicationContext applicationContext = (ApplicationContext)new ClassPathXmlApplicationContext(new String[]{"applicationContext.xml"});
-//		    configInfoService = (ConfigInfoService)applicationContext.getBean("configInfoService");
+//			newCarService = (NewCarService)applicationContext.getBean("newCarService");
 //		}
 //		
 //		public void testBasicInfo() {

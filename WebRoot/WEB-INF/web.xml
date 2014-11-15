@@ -58,7 +58,15 @@
 		<url-pattern>/yipincars/addNewCar</url-pattern>
 	</servlet-mapping>
 	
-	
+	<servlet>
+		<servlet-name>addCarBase</servlet-name>
+		<servlet-class>com.yipincars.admin.servlet.AddCarBaseServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>addCarBase</servlet-name>
+		<url-pattern>/yipincars/addCarBase</url-pattern>
+	</servlet-mapping>
 	<error-page>
 		<error-code>404</error-code>
 		<location>/NotFound404.jsp</location>
