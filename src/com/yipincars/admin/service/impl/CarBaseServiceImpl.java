@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.yipincars.admin.dao.CarBaseDao;
 import com.yipincars.admin.model.CarBase;
+import com.yipincars.admin.model.NewCar;
 import com.yipincars.admin.service.CarBaseService;
 import com.yipincars.admin.util.Localcache;
 
@@ -38,18 +39,28 @@ public class CarBaseServiceImpl implements CarBaseService{
 	}
 	
 	public List<CarBase> getCarBase4Admin(Map<String, Object> queryCondition) {
-		return carBaseDao.getCarBase4Admin(queryCondition);
+		List<CarBase> carBaseList = carBaseDao.getCarBase4Admin(queryCondition);
+		for(CarBase carBase : carBaseList){
+			NewCar newCar = Localcache.getNewCarById(carBase.getNewCarId());
+			if(newCar != null){
+				carBase.setBaseMake(newCar.getBaseMake());
+			}
+		}
+		return carBaseList;
 	}
 
 	public List<CarBase> getAllCarBases() {
-		// TODO Auto-generated method stub
-		return null;
+		return carBaseDao.getAllCarBases();
 	}
 	
 	
 	
 	public void setCarBaseDao(CarBaseDao carBaseDao) {
 		this.carBaseDao = carBaseDao;
+	}
+
+	public CarBase getCarBaseById(String id) {
+		return carBaseDao.getCarBaseById(id);
 	}
 
 

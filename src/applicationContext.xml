@@ -82,7 +82,7 @@
     	<property name="transactionManager" ref="transactionManager"/>   
     </bean>
 
-   	<bean id="sellerService" class="com.yipincars.admin.service.impl.SellerServiceImp">
+   	<bean id="sellerService" class="com.yipincars.admin.service.impl.SellerServiceImpl">
     	<property name="sellerDao">
 			<ref local="sellerDao"/>
 		</property>
@@ -93,7 +93,34 @@
 			<ref local="jdbcTemplate"/>
 		</property>
     </bean>
+    
+    <bean id="buyerService" class="com.yipincars.admin.service.impl.BuyerServiceImpl">
+    	<property name="buyerDao">
+			<ref local="buyerDao"/>
+		</property>
+    </bean>
+    
+    <bean id="buyerDao" class="com.yipincars.admin.dao.impl.BuyerDaoImpl">
+    	<property name="jdbcTemplate">
+			<ref local="jdbcTemplate"/>
+		</property>
+    </bean>
    
+   	<bean id="newCarService" class="com.yipincars.admin.service.impl.NewCarServiceImpl">
+    	<property name="newCarDao">
+			<ref local="newCarDao"/>
+		</property>
+    </bean>
+    
+    <bean id="newCarDao" class="com.yipincars.admin.dao.impl.NewCarDaoImpl">
+    	<property name="jdbcTemplate">
+			<ref local="jdbcTemplate"/>
+		</property>
+		<property name="hibernateTemplate">
+			<ref local="hibernateTemplate"/>
+		</property>
+	
+    </bean>
    
  	<bean id="carBaseService" class="com.yipincars.admin.service.impl.CarBaseServiceImpl">
     	<property name="carBaseDao">
@@ -104,6 +131,9 @@
     <bean id="carBaseDao" class="com.yipincars.admin.dao.impl.CarBaseDaoImpl">
     	<property name="jdbcTemplate">
 			<ref local="jdbcTemplate"/>
+		</property>
+		<property name="hibernateTemplate">
+			<ref local="hibernateTemplate"/>
 		</property>
     </bean>
     
@@ -116,6 +146,17 @@
     <bean id="carDetectionDao" class="com.yipincars.admin.dao.impl.CarDetectionDaoImpl">
     	<property name="jdbcTemplate">
 			<ref local="jdbcTemplate"/>
+		</property>
+		<property name="hibernateTemplate">
+			<ref local="hibernateTemplate"/>
+		</property>
+    </bean>
+     <bean id="localcache" class="com.yipincars.admin.util.Localcache" init-method="init" >
+    	<property name="newCarService">
+			<ref local="newCarService"/>
+		</property>
+		<property name="carBaseService">
+			<ref local="carBaseService"/>
 		</property>
     </bean>
 </beans>

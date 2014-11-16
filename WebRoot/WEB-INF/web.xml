@@ -88,6 +88,48 @@
 		<url-pattern>/yipincars/admin/getCarBaseList</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet>
+		<servlet-name>toCarBaseList</servlet-name>
+		<servlet-class>com.yipincars.servlet.admin.oldcar.ToCarBaseListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>toCarBaseList</servlet-name>
+		<url-pattern>/yipincars/admin/toCarBaseListPage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>toSellerList</servlet-name>
+		<servlet-class>com.yipincars.servlet.admin.seller.ToSellerListPage</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>toSellerList</servlet-name>
+		<url-pattern>/yipincars/admin/toSellerListPage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>toBuyerList</servlet-name>
+		<servlet-class>com.yipincars.servlet.admin.buyer.ToBuyerListPage</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>toBuyerList</servlet-name>
+		<url-pattern>/yipincars/admin/toBuyerListPage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>toNewCarList</servlet-name>
+		<servlet-class>com.yipincars.servlet.admin.newcar.ToNewCarListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>toNewCarList</servlet-name>
+		<url-pattern>/yipincars/admin/toNewCarListPage</url-pattern>
+	</servlet-mapping>
+	
+	
 	<error-page>
 		<error-code>404</error-code>
 		<location>/NotFound404.jsp</location>

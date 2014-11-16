@@ -1,5 +1,6 @@
 package com.yipincars.admin.dao.impl;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +16,7 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.yipincars.admin.dao.CarBaseDao;
 import com.yipincars.admin.model.CarBase;
@@ -22,43 +24,19 @@ import com.yipincars.admin.model.CarBase;
 public class CarBaseDaoImpl implements CarBaseDao{
 
 	private JdbcTemplate jdbcTemplate;
-	
-	private static final String INSERT_CARBASE = "INSERT INTO car_base(new_car_id, place, price, older, gearbox," +
-			"classify, register_time, mileage, platen_number, exhaust, annual_inspection, forced_insurance, business_insurance, transfor_number," +
-			"transfor_last_time, detect_time, seller_name, seller_job, seller_home_address, seller_telephone,seller_description, master_name, master_number," +
-			"master_description,quality_level) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private HibernateTemplate hibernateTemplate;
 	
 	private static final String DELETE_CARBASE = "DELETE FROM car_base WHERE ";
-	private static final String UPDATE_CARBASE = "UPDATE car_base SET new_car_id=?, place=?, price=?, older=?, gearbox=?," +
-			"classify=?, register_time=?, mileage=?, platen_number=?, exhaust=?, annual_inspection=?, forced_insurance=?, " +
-			"business_insurance=?, transfor_number=?, transfor_last_time=?, detect_time=?, seller_name=?, seller_job=?, " +
-			"seller_home_address=?, seller_telephone=?,seller_description=?, master_name=?, master_number=?," +
-			"master_description=?,quality_level=? WHERE id=?";
+	private static final String QUERY_CARBASE_BY_ID = "SELECT * FROM car_base WHERE=";
 	
 	private static final String QUERY_CARBASES = "SELECT * FROM car_base WHERE ";
+	private static final String QUERY_ALL_CARBASES = "FROM CarBase";
 	
 	public long addCarBase(CarBase carBase) {
 
-		final Object[] values = {carBase.getNewCarId(), carBase.getPrice(), carBase.getOlder(), carBase.getGearbox(),
-				carBase.getClassify(), carBase.getRegisterTime(), carBase.getMileage(), carBase.getPlatenNumber(),
-				carBase.getExhaust(), carBase.getAnnualInspection(), carBase.getForcedInsurance(), 
-				carBase.getBusinessInsurance(), carBase.getTransforNumber(), carBase.getTransforLastTime(),
-				carBase.getDetectTime(), carBase.getSellerName(), carBase.getSellerJob(), carBase.getSellerHomeAddress(),
-				carBase.getSellerDescription(), carBase.getMasterName(), carBase.getMasterNumber(), carBase.getMasterDescription()};
-		
-		KeyHolder keyHolder = new GeneratedKeyHolder();
-		jdbcTemplate.update(new PreparedStatementCreator(){
-			
-			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement ps = con.prepareStatement(INSERT_CARBASE,Statement.RETURN_GENERATED_KEYS);
-				for(int i=0; i < values.length; i++){
-					ps.setObject(i + 1, values[i]);
-				}
-				return ps;
-			}
-			
-		},keyHolder);
-		return keyHolder.getKey().longValue();
+		Serializable id = hibernateTemplate.save(carBase);
+		System.out.println(id.toString());
+		return Long.valueOf(id.toString());
 	}
 
 	
@@ -77,7 +55,7 @@ public class CarBaseDaoImpl implements CarBaseDao{
 				carBase.getSellerDescription(), carBase.getMasterName(), carBase.getMasterNumber(), 
 				carBase.getMasterDescription(), carBase.getId()};
 		
-		jdbcTemplate.update(UPDATE_CARBASE, values);
+//		jdbcTemplate.update(UPDATE_CARBASE, values);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -105,11 +83,14 @@ public class CarBaseDaoImpl implements CarBaseDao{
 			public CarBase mapRow(ResultSet rs,int rowNum) throws SQLException{
 				CarBase carBase = new CarBase();
 				carBase.setId(rs.getLong("id"));
+				carBase.setNewCarId(rs.getLong("new_car_id"));
 				carBase.setPrice(rs.getFloat("price"));
-//				carBase.setRegisterTime(rs.getDate("register_time"));
-//				carBase.setDetectTime(rs.getDate("detection_time"));
-//				carBase.setSellerDescription(rs.getString("seller_description"));
-//				carBase.setSellerTelephone(rs.getString("seller_telephone"));
+				carBase.setQualityLevel(rs.getString("quality_level"));
+				carBase.setRegisterTime(rs.getDate("register_time"));
+				carBase.setDetectTime(rs.getDate("detect_time"));
+				carBase.setMasterDescription(rs.getString("master_description"));
+				carBase.setSellerDescription(rs.getString("seller_description"));
+				carBase.setSellerTelephone(rs.getString("seller_telephone"));
 				
 				return carBase;
 			}
@@ -118,6 +99,22 @@ public class CarBaseDaoImpl implements CarBaseDao{
 	
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
+	}
+
+
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
+
+
+	public CarBase getCarBaseById(String id) {
+		return (CarBase) hibernateTemplate.find(QUERY_CARBASE_BY_ID).get(0);
+		
+	}
+
+
+	public List<CarBase> getAllCarBases() {
+		return hibernateTemplate.find(QUERY_ALL_CARBASES);
 	}
 
 

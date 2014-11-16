@@ -1,6 +1,7 @@
 package com.yipincars.admin.model;
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 /**
@@ -353,7 +355,7 @@ public class CarBase implements java.io.Serializable {
 	public void setInputTime(Date inputTime) {
 		this.inputTime = inputTime;
 	}
-
+	@javax.persistence.Transient
 	public String getBaseMake() {
 		return baseMake;
 	}
@@ -361,7 +363,7 @@ public class CarBase implements java.io.Serializable {
 	public void setBaseMake(String baseMake) {
 		this.baseMake = baseMake;
 	}
-
+	@javax.persistence.Transient
 	public String getBaseProducePlace() {
 		return baseProducePlace;
 	}
@@ -369,7 +371,7 @@ public class CarBase implements java.io.Serializable {
 	public void setBaseProducePlace(String baseProducePlace) {
 		this.baseProducePlace = baseProducePlace;
 	}
-
+	@javax.persistence.Transient
 	public String getBaseLine() {
 		return baseLine;
 	}
@@ -377,7 +379,7 @@ public class CarBase implements java.io.Serializable {
 	public void setBaseLine(String baseLine) {
 		this.baseLine = baseLine;
 	}
-
+	@javax.persistence.Transient
 	public String getBaseMarketTime() {
 		return baseMarketTime;
 	}
@@ -385,7 +387,7 @@ public class CarBase implements java.io.Serializable {
 	public void setBaseMarketTime(String baseMarketTime) {
 		this.baseMarketTime = baseMarketTime;
 	}
-
+	@javax.persistence.Transient
 	public String getBaseModel() {
 		return baseModel;
 	}

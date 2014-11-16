@@ -2,6 +2,7 @@ package com.yipincars.admin.util;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -22,10 +23,17 @@ public class Localcache {
 	private static Map<Long, NewCar> newCarCache = new ConcurrentHashMap<Long, NewCar>();
 	private static CopyOnWriteArrayList<CarBase> carBaseCache = new CopyOnWriteArrayList<CarBase>();
 	
+	private static Map<String, Vector<String>> makeLineMap = new ConcurrentHashMap<String, Vector<String>>();
+	private static Map<String, Vector<String>> lineModelMap = new ConcurrentHashMap<String, Vector<String>>();
+	
+	
+	
 	
 	
 	//init method. started by spring.
 	public void init(){
+		
+		System.out.println("initing ....");
 		
 		List<CarBase> carBases = carBaseService.getAllCarBases();
 		for(CarBase carBase : carBases){
@@ -35,7 +43,9 @@ public class Localcache {
 		List<NewCar> newCars = newCarService.getAllNewCars();
 		for(NewCar newCar : newCars){
 			newCarCache.put(newCar.getId(), newCar);
+			updateTipMap(newCar);
 		}
+		
 	}
 
 	
@@ -66,13 +76,56 @@ public class Localcache {
 	}
 	
 	
-	public static void addOrUpdateNewCar(NewCar newCar){
+	public static void addNewCar(NewCar newCar){
 		newCarCache.put(newCar.getId(), newCar);
+		updateTipMap(newCar);
 	}
 	
+	public static void updateNewCar(NewCar newCar){
+		newCarCache.put(newCar.getId(), newCar);
+	}
 	public static void delNewCars(List<Long> ids){
 		for(Long id : ids){
+			NewCar newCar = newCarCache.get(id);
+			String line = newCar.getBaseProducePlace() + "-" + newCar.getBaseLine();
+			String model = newCar.getBaseMarketTime() + "-" + newCar.getBaseModel() + "-" + newCar.getId();
+			
+			lineModelMap.get(line).remove(model);
+			if(lineModelMap.get(line).isEmpty()){
+				lineModelMap.remove(line);
+				makeLineMap.get(newCar.getBaseMake()).remove(line);
+				
+				if(makeLineMap.get(newCar.getBaseMake()).isEmpty()){
+					makeLineMap.remove(newCar.getBaseMake());
+				}
+			}
 			newCarCache.remove(id);
+		}
+	}
+	
+	public static NewCar getNewCarById(Long id){
+		return newCarCache.get(id);
+	}
+	
+	private static void updateTipMap(NewCar newCar){
+		
+		String line = newCar.getBaseProducePlace() + "-" + newCar.getBaseLine();
+		String model = newCar.getBaseMarketTime() + "-" + newCar.getBaseModel() + "-" + newCar.getId();
+		
+		if(makeLineMap.containsKey(newCar.getBaseMake())){
+			makeLineMap.get(newCar.getBaseMake()).add(line);
+		}else{
+			Vector<String> lineVector = new Vector<String>();
+			lineVector.add(line);
+			makeLineMap.put(newCar.getBaseMake(), lineVector);
+		}
+		
+		if(lineModelMap.containsKey(line)){
+			lineModelMap.get(line).add(model);
+		}else{
+			Vector<String> modelVector = new Vector<String>();
+			modelVector.add(model);
+			lineModelMap.put(line, modelVector);
 		}
 	}
 	

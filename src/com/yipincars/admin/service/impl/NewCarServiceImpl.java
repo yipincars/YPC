@@ -2,6 +2,7 @@ package com.yipincars.admin.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.yipincars.admin.dao.NewCarDao;
 import com.yipincars.admin.model.NewCar;
@@ -15,7 +16,7 @@ public class NewCarServiceImpl implements NewCarService{
 	
 	public long addNewCar(NewCar newCar) {
 		long id = newCarDao.addNewCar(newCar);
-		Localcache.addOrUpdateNewCar(newCar);
+		Localcache.addNewCar(newCar);
 		return id;
 	}
 
@@ -32,16 +33,19 @@ public class NewCarServiceImpl implements NewCarService{
 
 	public void updateNewCar(NewCar newCar) {
 		newCarDao.updateNewCar(newCar);
-		Localcache.addOrUpdateNewCar(newCar);
+		Localcache.addNewCar(newCar);
 	}
 
 	public List<NewCar> getAllNewCars() {
-		// TODO Auto-generated method stub
-		return null;
+		return newCarDao.getAllNewCars();
 	}
 	
 	public void setNewCarDao(NewCarDao newCarDao) {
 		this.newCarDao = newCarDao;
+	}
+
+	public List<NewCar> getNewCars(Map<String, Object> queryCondition) {
+		return newCarDao.getNewCars(queryCondition);
 	}
 	
 	

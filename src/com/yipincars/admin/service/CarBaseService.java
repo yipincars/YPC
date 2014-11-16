@@ -12,7 +12,7 @@ public interface CarBaseService {
 	public void delCarBases(String ids);
 	
 	public List<CarBase> getCarBase4Admin(Map<String, Object> queryCondition);
-	
+	public CarBase getCarBaseById(String id);
 	
 	/**
 	 * 

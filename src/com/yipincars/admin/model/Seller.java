@@ -22,6 +22,12 @@ public class Seller implements java.io.Serializable {
 	private Timestamp timestamp;
 	private String remark;
 
+	//new car info
+	private String baseMake;
+	private String baseLine;
+	private String baseModel;
+	
+	
 	// Constructors
 
 	/** default constructor */
@@ -90,6 +96,30 @@ public class Seller implements java.io.Serializable {
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+	@javax.persistence.Transient
+	public String getBaseMake() {
+		return baseMake;
+	}
+
+	public void setBaseMake(String baseMake) {
+		this.baseMake = baseMake;
+	}
+	@javax.persistence.Transient
+	public String getBaseLine() {
+		return baseLine;
+	}
+
+	public void setBaseLine(String baseLine) {
+		this.baseLine = baseLine;
+	}
+	@javax.persistence.Transient
+	public String getBaseModel() {
+		return baseModel;
+	}
+
+	public void setBaseModel(String baseModel) {
+		this.baseModel = baseModel;
 	}
 
 }

@@ -10,6 +10,7 @@ public interface CarBaseDao {
 	public void updateCarBase(CarBase carBase);
 	public void delCarBase(String ids);
 	public List<CarBase> getCarBase4Admin(Map<String, Object> queryCondition);
-	
+	public CarBase getCarBaseById(String id);
+	public List<CarBase> getAllCarBases();
 	
 }
