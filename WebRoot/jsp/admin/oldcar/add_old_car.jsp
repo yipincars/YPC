@@ -33,7 +33,7 @@
                
                 	<p>
                         <label>城市</label>
-                        <input name="place" type="text" size="30" value="" />
+                        <input name="place" type="text" size="30" value="北京" />
                     </p>
                     <p>
                         <label>价格</label>
@@ -41,7 +41,11 @@
                     </p>
                      <p>
                         <label>质量等级</label>
-                        <input name="qualityLevel" type="text" size="30" value="" />
+                        <select name="qualityLevel" class="combox">
+                                <option value="A+">A+</option>
+				              <option value="A">A</option>
+				              <option value="B">B</option>
+                            </select>
                     </p>
                     <p>
                         <label>车龄（月）</label>
@@ -49,11 +53,24 @@
                     </p>
                     <p>
                         <label>变速箱</label>
-                        <input name="gearbox" type="text" size="30" value="" />
+                        <select name="gearbox" class="combox">
+                                <option value="手动变速箱">手动变速箱</option>
+				              <option value="普通自动变速箱">普通自动变速箱</option>
+				              <option value="普通自动变速箱带手自一体">普通自动变速箱带手自一体</option>
+				               <option value="CVT无级变速箱">CVT无级变速箱</option>
+				               <option value="CVT带挡位的变速箱">CVT带挡位的变速箱</option>
+				               <option value="双离合变速箱">双离合变速箱</option>
+				               <option value="序列变速箱">序列变速箱</option>
+                            </select>
                     </p>
                     <p>
                         <label>车型</label>
-                        <input name="classify" type="text" size="30" value="" />
+                         <select name="classify" class="combox">
+                                <option value="两厢">两厢</option>
+				              <option value="三厢">三厢</option>
+				              <option value="SUV">SUV</option>
+				               <option value="MPV">MPV</option>
+                            </select>
                     </p>
                     <p>
                         <label>上牌时间</label>
@@ -133,9 +150,6 @@
                     <ul>
                        <!--<li><a class="buttonActive" href="javascript:;"><span>ä¿å­</span></a></li>-->
                         <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
-                        <li>
-                            <div class="button"><div class="buttonContent"><button type="button" class="close">åæ¶</button></div></div>
-                        </li>
                     </ul>
                 </div>
             </form>

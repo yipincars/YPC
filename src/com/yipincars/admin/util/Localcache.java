@@ -1,7 +1,10 @@
 package com.yipincars.admin.util;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -127,6 +130,33 @@ public class Localcache {
 			modelVector.add(model);
 			lineModelMap.put(line, modelVector);
 		}
+	}
+	
+	public static Set<String> getAllMakes(){
+		return makeLineMap.keySet();
+	}
+	
+	public static Map<String,List<String>> getLinesByMake(String make){
+		Vector<String> lines = makeLineMap.get(make);
+		Map<String, List<String>> result = new HashMap<String, List<String>>();
+		
+		for(String line : lines){
+			String[] elems = line.split("-");
+			if(result.containsKey(elems[0])){
+				result.get(elems[0]).add(elems[1]);
+			}else{
+				List<String> lineList = new ArrayList<String>();
+				lineList.add(elems[1]);
+				result.put(elems[0], lineList);
+			}
+		}
+		
+		return result;
+	}
+	
+	public static Map<String, List<String>> getModelsByLine(String line){
+		
+		return null;
 	}
 	
 	public void setCarBaseService(CarBaseService carBaseService) {
