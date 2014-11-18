@@ -32,16 +32,9 @@ public class UpdateSellerRemarkServlet extends AbstractServlet {
 	@Override
 	public Pair<Long, String> validateParamsAndBuild(HttpServletRequest request) {
 
-        //HTTP请求中value值
-        String value = request.getParameter("value");
-
-        LOG.info("value=" + value);
-        JSONObject delSellerJson = JSONObject.fromObject(value);
-				
-
-
-        String id = delSellerJson.getString("id");
-		String remark = delSellerJson.getString("remark");
+	    String remark = request.getParameter("remark");
+	    String id = request.getParameter("id");
+	    
 		LOG.info("id=" + id + ", remark=" + remark);
 		
 		ParamChecker.CheckNumber("id", id);

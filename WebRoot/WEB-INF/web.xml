@@ -110,6 +110,16 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>updateSellerRemark</servlet-name>
+		<servlet-class>com.yipincars.servlet.admin.seller.UpdateSellerRemarkServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>updateSellerRemark</servlet-name>
+		<url-pattern>/yipincars/admin/updateSellerRemark</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>toBuyerList</servlet-name>
 		<servlet-class>com.yipincars.servlet.admin.buyer.ToBuyerListPage</servlet-class>
 	</servlet>

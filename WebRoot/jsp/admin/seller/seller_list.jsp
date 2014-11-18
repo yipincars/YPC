@@ -56,7 +56,7 @@
 		<tbody>
 		
 			<c:forEach items="${requestScope.sellers}" var="seller"> 
-				<tr target="sid_user" rel="${seller.id } content="seller">
+				<tr target="sid_user" rel="${seller.id }" content="seller">
 					<td>${seller.baseMake}</td>
 					<td>${seller.baseLine}</td>
 					<td>${seller.baseModel}</td>
@@ -88,7 +88,7 @@
 
 </div>
 <script type="text/javascript">
-$([content="seller"]).bind('click', function(){
-	alert($(this).val(rel));
-}
+$('[content="seller"]').bind('click', function(){
+	$('#selectedId').val($(this).attr('rel'));	
+});
 </script>

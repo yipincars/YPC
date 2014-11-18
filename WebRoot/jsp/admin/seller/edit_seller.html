@@ -1,48 +1,60 @@
 <div class="pageContent">
-            <form method="post" action="/YPC/yipincars/addCarBase" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
-                <div class="pageFormContent" layoutH="56">
-                		 
-                		 <p>
-                            <label>品牌：</label>
-                            <select class="combox">
-                                <option value="">test</option>
-                            </select>
-                        </p>
-                        
-                        <p>
-                            <label>车系：</label>
-                            <select class="combox">
-                                <option value="">test</option>
-                            </select>
-                       </p>
-                       
-                       <p>
-      						<label>车型：</label>
-                            <select class="combox">
-                                <option value="">test</option>
-                            </select>
-                        </p>  
-                         
-                       <p>
-      						<label>电话：</label>
-                            <select class="combox">
-                                <option value="">test</option>
-                            </select>
-                        </p>  
-                        
-                         
-                       <p>
-      						<label>备注：</label>
-                            <select class="combox">
-                                <option value="">test</option>
-                            </select>
-                        </p>  
-           
-                </div>
-                <div class="formBar">
-                    <ul>
-                        <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
-                    </ul>
-                </div>
-            </form>
-            </div>
+    <form method="post" action="/YPC/yipincars/admin/updateSellerRemark" class="pageForm required-validate" onsubmit="updateSeller()">
+        <div class="pageFormContent" layoutH="56" content="editSeller">
+        		 
+        		<p>
+                    <label>品牌：</label>
+                   <input name="make" type="text" size="30" value="1" />
+                </p>
+                
+                <p>
+                    <label>车系：</label>
+                  <input name="line" type="text" size="30" value="" />
+               </p>
+               
+               <p>
+				<label>车型：</label>
+                  <input name="model" type="text" size="30" value="" />
+                </p>  
+                 
+               <p>
+				<label>电话：</label>
+				<input name="telephone" type="text" size="30" value="" />
+                </p>
+                
+                 
+               <p>
+				<label>备注：</label>
+                  <input name="remark" type="text" size="30" value="" />
+                </p>  
+   
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+    
+                
+<script type="text/javascript">
+	var inputs = $('div[content="editSeller"] input');
+	var tds = $('[rel="' + $("#selectedId").val() + '"]').children('td');
+	for(var i=0; i < 5; i++){
+		inputs[i].value = $(tds[i]).text();
+	}
+	var form = $('div[content="editSeller"]').parent("form");
+	var action = form.attr("action");
+	action = action + "?id=" + $("#selectedId").val();
+	function updateSeller(){
+		action += ("&remark=" + inputs[4].value);
+		form.attr("action", action);
+		alert(action);
+		return validateCallback(this, navTabAjaxDone);
+	}
+	
+	//发送ajax请求
+	
+	
+</script>
