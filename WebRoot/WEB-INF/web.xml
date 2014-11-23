@@ -37,6 +37,34 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<servlet>
+		<servlet-name>toCarListPage</servlet-name>
+		<servlet-class>com.yipincars.servlet.ToCarListPage</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>toCarListPage</servlet-name>
+		<url-pattern>/yipincars/vehicleList</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>getMake</servlet-name>
+		<servlet-class>com.yipincars.servlet.GetMakeServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>getMake</servlet-name>
+		<url-pattern>/yipincars/getMake</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getCarBase</servlet-name>
+		<servlet-class>com.yipincars.servlet.GetCarBaseServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>getCarBase</servlet-name>
+		<url-pattern>/yipincars/getCarBase</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>addSeller</servlet-name>
@@ -117,6 +145,16 @@
 	<servlet-mapping>
 		<servlet-name>updateSellerRemark</servlet-name>
 		<url-pattern>/yipincars/admin/updateSellerRemark</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getSeller</servlet-name>
+		<servlet-class>com.yipincars.servlet.admin.seller.GetSellerServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getSeller</servlet-name>
+		<url-pattern>/yipincars/admin/getSeller</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

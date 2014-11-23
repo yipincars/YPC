@@ -50,7 +50,7 @@
 		 <!-- 设置自动扫描，这样就不用一一注册model的ORM映射了  -->
 		<property name="packagesToScan">
 			<list>
-				<value>com.yipincars.admin.model</value>
+				<value>com.yipincars.model</value>
 			</list>
 		</property>
 		<!-- 设置Hibernate的相关属性 -->
@@ -82,37 +82,37 @@
     	<property name="transactionManager" ref="transactionManager"/>   
     </bean>
 
-   	<bean id="sellerService" class="com.yipincars.admin.service.impl.SellerServiceImpl">
+   	<bean id="sellerService" class="com.yipincars.service.impl.SellerServiceImpl">
     	<property name="sellerDao">
 			<ref local="sellerDao"/>
 		</property>
     </bean>
     
-    <bean id="sellerDao" class="com.yipincars.admin.dao.impl.SellerDaoImpl">
+    <bean id="sellerDao" class="com.yipincars.dao.impl.SellerDaoImpl">
     	<property name="jdbcTemplate">
 			<ref local="jdbcTemplate"/>
 		</property>
     </bean>
     
-    <bean id="buyerService" class="com.yipincars.admin.service.impl.BuyerServiceImpl">
+    <bean id="buyerService" class="com.yipincars.service.impl.BuyerServiceImpl">
     	<property name="buyerDao">
 			<ref local="buyerDao"/>
 		</property>
     </bean>
     
-    <bean id="buyerDao" class="com.yipincars.admin.dao.impl.BuyerDaoImpl">
+    <bean id="buyerDao" class="com.yipincars.dao.impl.BuyerDaoImpl">
     	<property name="jdbcTemplate">
 			<ref local="jdbcTemplate"/>
 		</property>
     </bean>
    
-   	<bean id="newCarService" class="com.yipincars.admin.service.impl.NewCarServiceImpl">
+   	<bean id="newCarService" class="com.yipincars.service.impl.NewCarServiceImpl">
     	<property name="newCarDao">
 			<ref local="newCarDao"/>
 		</property>
     </bean>
     
-    <bean id="newCarDao" class="com.yipincars.admin.dao.impl.NewCarDaoImpl">
+    <bean id="newCarDao" class="com.yipincars.dao.impl.NewCarDaoImpl">
     	<property name="jdbcTemplate">
 			<ref local="jdbcTemplate"/>
 		</property>
@@ -122,13 +122,13 @@
 	
     </bean>
    
- 	<bean id="carBaseService" class="com.yipincars.admin.service.impl.CarBaseServiceImpl">
+ 	<bean id="carBaseService" class="com.yipincars.service.impl.CarBaseServiceImpl">
     	<property name="carBaseDao">
 			<ref local="carBaseDao"/>
 		</property>
     </bean>
     
-    <bean id="carBaseDao" class="com.yipincars.admin.dao.impl.CarBaseDaoImpl">
+    <bean id="carBaseDao" class="com.yipincars.dao.impl.CarBaseDaoImpl">
     	<property name="jdbcTemplate">
 			<ref local="jdbcTemplate"/>
 		</property>
@@ -137,13 +137,13 @@
 		</property>
     </bean>
     
-    <bean id="carDetectionService" class="com.yipincars.admin.service.impl.CarDetectionServiceImpl">
+    <bean id="carDetectionService" class="com.yipincars.service.impl.CarDetectionServiceImpl">
     	<property name="carDetectionDao">
 			<ref local="carDetectionDao"/>
 		</property>
     </bean>
     
-    <bean id="carDetectionDao" class="com.yipincars.admin.dao.impl.CarDetectionDaoImpl">
+    <bean id="carDetectionDao" class="com.yipincars.dao.impl.CarDetectionDaoImpl">
     	<property name="jdbcTemplate">
 			<ref local="jdbcTemplate"/>
 		</property>
@@ -151,7 +151,7 @@
 			<ref local="hibernateTemplate"/>
 		</property>
     </bean>
-     <bean id="localcache" class="com.yipincars.admin.util.Localcache" init-method="init" >
+     <bean id="localcache" class="com.yipincars.util.Localcache" init-method="init" >
     	<property name="newCarService">
 			<ref local="newCarService"/>
 		</property>

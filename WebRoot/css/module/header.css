@@ -1,0 +1,42 @@
+
+/* Header {*/
+#header {
+    background: rgba(253,253,253,1);
+    height: 111px;
+    width: 100%;
+    padding-left:60px;
+	border-bottom:1px solid #eee;
+	box-shadow: 0 4px 4px #A9A9A9;
+}
+    #header img {
+        left: 0;
+        top: 0;
+    }
+	#spriteLogo {
+		width: 206px;
+		height: 71px;
+		background: transparent url(../../images/_temp/animatedBeepiLogo.png);
+        background-size: auto 71px;
+		display: block;
+		float: left;
+		margin: 1.7em 0 0 0em;
+		position: absolute;
+	}
+	#dashboard {
+		background: url("../../images/_temp/sprite.png") repeat scroll 0 0 transparent;
+		background-position: -566px -403px;
+		float: right;
+		margin: 1.7em 0 0 0;
+		width: 210px;
+		height: 54px;
+		cursor: pointer !important;
+		display: inline;
+		position: relative;
+	}
+	.hover_dashboard {
+		background-position: -566px -457px !important;
+	}
+	.hover_email {
+		background-color:#666 !important;
+	}
+/*} HEADER */

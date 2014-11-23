@@ -13,13 +13,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.yipincars.admin.exception.YPCException;
-import com.yipincars.admin.exception.YPCExceptionFactor;
-import com.yipincars.admin.service.BuyerService;
-import com.yipincars.admin.service.CarBaseService;
-import com.yipincars.admin.service.CarDetectionService;
-import com.yipincars.admin.service.NewCarService;
-import com.yipincars.admin.service.SellerService;
+import com.yipincars.exception.YPCException;
+import com.yipincars.exception.YPCExceptionFactor;
+import com.yipincars.service.BuyerService;
+import com.yipincars.service.CarBaseService;
+import com.yipincars.service.CarDetectionService;
+import com.yipincars.service.NewCarService;
+import com.yipincars.service.SellerService;
 
 public abstract class AbstractServlet extends HttpServlet {
 	

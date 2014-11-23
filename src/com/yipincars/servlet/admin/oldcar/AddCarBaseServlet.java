@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
-import com.yipincars.admin.model.CarBase;
+import com.yipincars.model.CarBase;
 import com.yipincars.servlet.AbstractServlet;
 
 public class AddCarBaseServlet extends AbstractServlet{

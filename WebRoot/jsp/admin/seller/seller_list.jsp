@@ -8,33 +8,31 @@
 	<input type="hidden" name="orderDirection" value="${param.orderDirection}" />
 </form>
 <div class="pageHeader">
-	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="demo_page1.html" method="post">
+	<div rel="pagerForm" method="post">
 	<div class="searchBar">
 	
 		<ul class="searchContent">
 			<li>
-				<label>品牌</label>
-				<input type="text" name="make"/>
+				<label style="width:12%">电话:</label>
+				<input type="text" name="telephone"/>
 			</li>
 			<li>
-				<label>价格</label>
-				<input type="text" name="lowPrice"/>
+				<label style="width:12%">备注:</label>
+				<input type="text" name="remark"/>
 			</li>
+			<li><div class="buttonActive"><div class="buttonContent"><button type="submit" id="querySeller">检索</button></div></div></li>
 		</ul>
-		<div class="subBar">
-			<ul>
-				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></li>
-			</ul>
+	
 		</div>
 	</div>
-	</form>
+	</div>
 </div>
 
 <div class="pageContent">
 	<div class="panelBar">
 		<ul class="toolBar">
-			<li><a class="add" href="./seller/show_seller.html" target="dialog"><span>详情</span></a></li>
-			<li><a class="edit" href="./seller/edit_seller.html" target="dialog" warn="请选中一条记录"><span>编辑</span></a></li>
+			<li><a class="edit" href="./seller/edit_seller.html" target="navTab" warn="请选中一条记录"><span>编辑</span></a></li>
+			<li><a class="add" href="/YPC/yipincars/admin/getSeller" target=""><span>刷新</span></a></li>
 			<li class="line">line</li>
 			<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="å®è¦å¯¼åºè¿äºè®°å½å?"><span>导出EXCEL</span></a></li>
 			<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="å®è¦å¯¼åºè¿äºè®°å½å?"><span>打印</span></a></li>
@@ -53,7 +51,7 @@
 			
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id="sellerBody">
 		
 			<c:forEach items="${requestScope.sellers}" var="seller"> 
 				<tr target="sid_user" rel="${seller.id }" content="seller">
@@ -91,4 +89,69 @@
 $('[content="seller"]').bind('click', function(){
 	$('#selectedId').val($(this).attr('rel'));	
 });
+
+var sellerItem = ["baseMake", "baseLine", "baseModel", "telephone", "remark"];
+$('#querySeller').click(function(){
+  var pageNo = 1;
+  var pageCount = $('[name="numPerPage"]').find("option:selected").text();
+  var action = '/YPC/yipincars/admin/getSeller?pageNo=' + pageNo + "&pageCount=" + pageCount;
+  $.ajax( {  
+        url : action,  
+        cache : false,  
+        success : function(data, textStatus){
+            var rawData = eval("("+data+")")
+        	$('#sellerBody tr').remove();
+        	var sellers = "";
+        	var style = ["","trbg"];
+        	for(var i=0; i < rawData.length; i++){
+        		sellers += ('<tr class="' + style[i % 2] + '" target="sid_user" rel="' + rawData[i].id + '" content="seller">');
+        		for(var j=0; j < sellerItem.length; j++){
+        			sellers += ('<td>' + rawData[i][sellerItem[j]] + '</td>');
+        		}
+        		sellers += '</tr>';
+        	}
+        	$('#sellerBody').prepend(sellers);
+        	
+        
+<!--			var aStyles = [];-->
+<!---->
+<!--			var oldThs = $table.find("thead>tr:last-child").find("th");-->
+<!--			for(var i = 0, l = oldThs.size(); i < l; i++) {-->
+<!--				var $th = $(oldThs[i]);-->
+<!--				var style = [], -->
+<!--				width = $th.innerWidth() - (100 * $th.innerWidth() / tlength)-2;-->
+<!--				style[0] = parseInt(width);-->
+<!--				style[1] = $th.attr("align");-->
+<!--				aStyles[aStyles.length] = style;-->
+<!--			}-->
+<!--			-->
+<!--        	var tbody = $("#sellerBody");-->
+<!--			var ftr = $(">tr:first-child", tbody);-->
+<!--			var $trs = tbody.find('>tr');-->
+<!--			$trs.hoverClass().each(function(){-->
+<!--				var $tr = $(this);-->
+<!--				var $ftds = $(">td", this);-->
+<!--				for (var i=0; i < $ftds.size(); i++) {-->
+<!--					var $ftd = $($ftds[i]);-->
+<!--					-->
+<!--					if (i < aStyles.length) $ftd.addClass(aStyles[i][1]);-->
+<!--				}-->
+<!--				$tr.click(function(){-->
+<!--					$trs.filter(".selected").removeClass("selected");-->
+<!--					$tr.addClass("selected");-->
+<!--					var sTarget = $tr.attr("target");-->
+<!--					if (sTarget) {-->
+<!--					if ($("#"+sTarget, $grid).size() == 0) {-->
+<!--						$grid.prepend('<input id="'+sTarget+'" type="hidden" />');-->
+<!--					}-->
+<!--					$("#"+sTarget, $grid).val($tr.attr("rel"));-->
+<!--				}-->
+<!--			});-->
+          	return false;
+        }
+    });
+}); 
+
+
+
 </script>

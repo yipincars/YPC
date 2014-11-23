@@ -3,6 +3,8 @@ package com.yipincars.admin.util;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
+import com.yipincars.util.MD5Utils;
+
 public class MD5UtilsTest {
 
 	public static void main(String[] args){

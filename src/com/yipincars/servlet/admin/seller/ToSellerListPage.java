@@ -8,7 +8,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yipincars.admin.model.Seller;
+import com.yipincars.model.Seller;
 import com.yipincars.servlet.AbstractServlet;
 
 public class ToSellerListPage  extends AbstractServlet{

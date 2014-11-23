@@ -7,10 +7,10 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import com.yipincars.admin.exception.YPCException;
-import com.yipincars.admin.exception.YPCExceptionFactor;
-import com.yipincars.admin.util.ParamChecker;
+import com.yipincars.exception.YPCException;
+import com.yipincars.exception.YPCExceptionFactor;
 import com.yipincars.servlet.AbstractServlet;
+import com.yipincars.util.ParamChecker;
 
 public class UpdateSellerRemarkServlet extends AbstractServlet {
 

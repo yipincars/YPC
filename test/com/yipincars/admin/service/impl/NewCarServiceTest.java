@@ -3,7 +3,7 @@ package com.yipincars.admin.service.impl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.yipincars.admin.service.NewCarService;
+import com.yipincars.service.NewCarService;
 
 public class NewCarServiceTest {
 

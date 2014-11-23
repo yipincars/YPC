@@ -3,28 +3,28 @@
         <div class="pageFormContent" layoutH="56" content="editSeller">
         		 
         		<p>
-                    <label>品牌：</label>
-                   <input name="make" type="text" size="30" value="1" />
+                    <label style="width:12%">品牌：</label>
+                   <input name="make" type="text" readOnly="true" size="30" value="1" />
                 </p>
                 
                 <p>
-                    <label>车系：</label>
-                  <input name="line" type="text" size="30" value="" />
-               </p>
+                    <label style="width:12%">车系：</label>
+                  <input name="line" type="text"  readOnly="true" size="30" value="" />
+               
                
                <p>
-				<label>车型：</label>
-                  <input name="model" type="text" size="30" value="" />
+				<label style="width:12%">车型：</label>
+                  <input name="model" type="text" readOnly="true" size="30" value="" />
                 </p>  
                  
                <p>
-				<label>电话：</label>
-				<input name="telephone" type="text" size="30" value="" />
+				<label style="width:12%">电话：</label>
+				<input name="telephone" type="text" readOnly="true" size="30" value="" />
                 </p>
                 
                  
                <p>
-				<label>备注：</label>
+				<label style="width:12%">备注：</label>
                   <input name="remark" type="text" size="30" value="" />
                 </p>  
    
@@ -36,7 +36,6 @@
         </div>
     </form>
 </div>
-    
                 
 <script type="text/javascript">
 	var inputs = $('div[content="editSeller"] input');
@@ -50,11 +49,8 @@
 	function updateSeller(){
 		action += ("&remark=" + inputs[4].value);
 		form.attr("action", action);
-		alert(action);
-		return validateCallback(this, navTabAjaxDone);
+		validateCallback(this, navTabAjaxDone);
 	}
-	
-	//发送ajax请求
 	
 	
 </script>

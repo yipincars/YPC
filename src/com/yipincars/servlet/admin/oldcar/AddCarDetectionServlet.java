@@ -1,6 +1,6 @@
 package com.yipincars.servlet.admin.oldcar;
 
-import com.yipincars.admin.model.CarDetection;
+import com.yipincars.model.CarDetection;
 import com.yipincars.servlet.AbstractServlet;
 
 import net.sf.json.JSONObject;

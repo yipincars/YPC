@@ -1,0 +1,117 @@
+/* FOOTER {*/
+#footer {
+   /* background: none repeat scroll 0 0 #EDEDED;*/
+    height: 96px;
+    top: 30px !important;
+    /*width: 100%;*/
+	width: auto;
+	position: relative;
+}
+.footer {
+    background-color: #EAEAEA;
+    padding: 15px 0;
+    position: relative;
+    width: 100%;
+}
+	.a12u{
+		-moz-box-sizing: border-box;
+		float: left;
+		width: 100%;
+	}
+	.footerBottom {
+		background-color: #434343;
+		color: #FFFFFF;
+		font-size: 14px;
+		height: 50px;
+		letter-spacing: normal;
+		line-height: 50px;
+		text-align: center;
+		width: 100%;
+	}
+	
+	.footerLinkList {
+		list-style-type: none;
+		margin-left: 20px;
+	}
+	
+	.footerLinkList a {
+		color: #777777 !important;
+	}
+	.txt14 {
+		font-family: 'Ubuntu', sans-serif;
+		font-weight: 300;
+		-webkit-font-smoothing: antialiased;
+		font-size: 14px;
+		line-height: 14px;
+	}
+	#footer a {
+		color: #4A4A4A;
+		text-decoration: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+	.footerLine {
+		border-right: 1px solid #D0D0D0;
+		text-align: left;
+		vertical-align: middle;
+	}
+	
+	.beepiColor {
+		color: #009BFF;
+		font-weight: bold;
+	}
+	
+	.btFacebookFooter {
+		background-image: url("../../images/_temp/bt_face.png");
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		display: block;
+		height: 39px;
+		width: 39px;
+	}
+	.btFacebookFooter:hover {
+		background-image: url("../../images/_temp/bt_face.png");
+		background-position: 0 -39px;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+	.btTwitterFooter {
+		background-image: url("../../images/_temp/bt_twitter.png");
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		display: block;
+		height: 39px;
+		width: 39px;
+	}
+	.btTwitterFooter:hover {
+		background-image: url("../../images/_temp/bt_twitter.png");
+		background-position: 0 -39px;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+	.btBeepiLogoFooter {
+		background-image: url("../../images/_temp/logo_footer.png");
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		display: block;
+		height: 39px;
+		width: 39px;
+	}
+	.btPinterestFooter {
+		background-image: url("../../images/_temp/bt_pinterest.png");
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		display: block;
+		height: 39px;
+		width: 39px;
+	}
+	.btPinterestFooter:hover {
+		background-image: url("../../images/_temp/bt_pinterest.png");
+		background-position: 0 -39px;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+/*} FOOTER */

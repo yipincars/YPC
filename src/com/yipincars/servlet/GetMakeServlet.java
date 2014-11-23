@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.orm.hibernate3.LocalCacheProviderProxy;
 
-import com.yipincars.admin.util.Localcache;
+import com.yipincars.util.Localcache;
 
 import net.sf.json.JSONArray;
 

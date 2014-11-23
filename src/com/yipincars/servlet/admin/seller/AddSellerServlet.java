@@ -5,9 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONObject;
 
 
-import com.yipincars.admin.model.Seller;
-import com.yipincars.admin.util.ParamChecker;
+import com.yipincars.model.Seller;
 import com.yipincars.servlet.AbstractServlet;
+import com.yipincars.util.ParamChecker;
 
 import java.sql.Timestamp;
 

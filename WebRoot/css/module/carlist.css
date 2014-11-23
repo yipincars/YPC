@@ -1,0 +1,41 @@
+.YPC_carlist{overflow: hidden;width: 1208px;margin: 0 auto;}
+.YPC_carlist .carlist_outer{overflow: hidden;}
+.YPC_carlist .carlist_outer .list{float:left;width:591px;margin-left:8px;margin-bottom:25px;border:1px solid #eee;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+.YPC_carlist .carlist_outer .list:hover{border:1px solid #486a00;}
+.YPC_carlist .carlist_outer .list .top_img{float:left;position: relative;}
+.YPC_carlist .carlist_outer .list .left_img{float:left;margin-right:12px;}
+.YPC_carlist .carlist_outer .list .right_img{float:right;width:190px;height:262px;overflow: hidden;}
+.YPC_carlist .carlist_outer .list .left_img img{width:387px;height: 260px;}
+.YPC_carlist .carlist_outer .list .right_img img{width:189px;height: 124px;margin-bottom:10px;}
+.YPC_carlist .carlist_outer .opa{height:33px;opacity: .6;width:100%;position: absolute;bottom:0;left:0;background-color: #000;color:#fff;line-height:33px;}
+.YPC_carlist .carlist_outer .opa i{padding-left:15px;font-size:1.25em}
+.YPC_carlist .bottom_info{overflow: hidden;clear:both;height:75px;line-height: 75px;border:1px solid #486a00;border-top:1px solid #fff;}
+.YPC_carlist .bottom_info .left_info{float:left;width:125px;color:#486a00;font-size:1.25em;margin-left:10px;}
+.YPC_carlist .bottom_info .right_info{float:right;width:115px;color:#ff8a00;}
+.YPC_carlist .bottom_info .right_info i{font-size:2em;}
+.YPC_carlist .bottom_info .center_info{overflow: hidden;display: inline-block;line-height: 12px;padding:20px 0;height:40px;vertical-align: middle;margin-left:35px;}
+.YPC_carlist .bottom_info .center_info span{display: inline-block;width:80px;height:100%;border-right:2px solid #eee;text-align: center;}
+.YPC_carlist .bottom_info .center_info span .tit{color:#a0a0a0;width:100%;display: inline-block;margin-top:3px;}
+.YPC_carlist .bottom_info .center_info span .val{color:#486a00;display: inline-block;margin-top:10px;}
+.YPC_carlist .bottom_info .center_info span.box{border:none;}
+
+
+
+.YPC_carlist .paging{width:1208px;height:40px;margin:0 auto;text-align:left;}
+.YPC_carlist .paging ul li{float:left;padding:0 4px 0 0;}
+.YPC_carlist .paging ul li a{font-family: Arial;transition: all 0.5s ease;}
+.YPC_carlist .paging ul li a:hover{text-decoration:none;}
+.YPC_carlist .pagination_page{display:block;background:#fff;color:#999;padding:9px 16px;border:1px solid #D9D9D9;font-weight:bold;border-radius: 4px;}
+.YPC_carlist .pagination_page:hover{background:#999;color: #fff;text-decoration: none;border:1px solid #999;}
+.YPC_carlist .pagination_gap{font-size: 12px;color: #999;padding:15px 2px 0 2px;display:block;}
+.YPC_carlist .pagination_page_current{background:#486a00;color: #fff;border-radius: 4px;text-align:center;display: block;padding:10px 16px;}
+
+.YPC_carlist .sbr-main{width: 223px;}
+.YPC_carlist .gw-lc{width:223px;height:40px;background: #fff;color: #262626;text-align:center;font-size: 18px;font-weight: 100;line-height:40px;border: 1px solid #D9D9D9;}
+.YPC_carlist .gw-ul{width:193px;padding:5px 15px 15px 15px;background:#fff;border-left: 1px solid #D9D9D9;border-right: 1px solid #D9D9D9;border-bottom: 1px solid #D9D9D9;}
+
+.YPC_carlist .reset-mx{float:left;display:block;height:38px;line-height:38px;text-decoration:none;margin-top:15px;color:#a0a0a0;padding:0;}
+.YPC_carlist .reset-mx:hover{color:#486a00;}
+.YPC_carlist .reset-mx img{position:relative;top:2px;}
+.YPC_carlist .car_tit h3{padding:0 20px 0 10px;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow: hidden;}
+

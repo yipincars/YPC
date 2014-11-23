@@ -1,0 +1,22 @@
+@charset "utf-8";
+body{min-width:320px;color:#333;overflow-x:hidden;-webkit-backface-visibility: hidden;background-color:#f2f2f2;}
+a{color:#333;}
+a:hover{color:#0078db;}
+/**** 文字 链接色 ****/
+
+/*ICON*/
+.YPC_ico{display:inline-block;*display:inline;*zoom:1;background-image:url(../../images/common/icon.png);background-size:700px 1350px;background-repeat:no-repeat;background-color:transparent;background-position:-1000px -1000px; vertical-align:middle;_background-image:url(../../images/common/icon.gif);overflow:hidden;}
+
+.YPC_ico_l_sell{width:260px; height:263px; background-position:-50px 0;}
+.YPC_ico_r_buy{width:260px; height:263px; background-position:-410px 0 ;}
+.YPC_ico_cn{width:200px; height:200px; background-position:-140px -770px ;}
+.YPC_ico_yzc{width:87px; height:55px; background-position:-559px -350px ;}
+.YPC_ico_price{width:43px; height:55px; background-position: -350px -350px;}
+.YPC_ico_sh{width:62px; height:55px; background-position: -558px -420px;}
+.YPC_ico_downarr{width:14px; height:9px; background-position: 0 -980px;}
+.YPC_ico_downarr2{width:50px; height:14px; background-position: -44px -977px;}
+.YPC_ico_search{width:26px; height:22px; background-position: -139px -980px;}
+.YPC_ico_arr3{width:8px; height:11px; background-position: -210px -980px;}
+
+/*数据隐藏项*/
+.item_hd{ display:none;}

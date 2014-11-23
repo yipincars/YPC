@@ -4,7 +4,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yipincars.admin.model.CarBase;
+import com.yipincars.model.CarBase;
 import com.yipincars.servlet.AbstractServlet;
 
 public class ToViewOldCarServlet extends AbstractServlet{
